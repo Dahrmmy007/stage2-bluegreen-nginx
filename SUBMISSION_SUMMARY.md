@@ -370,7 +370,7 @@ The implementation showcases essential DevOps skills including containerization,
 
 ## Repository Links
 
-- **GitHub Repository**: [Add your repo URL]
+- **GitHub Repository**: [https://github.com/Dahrmmy007/stage2-bluegreen-nginx]
 - **Docker Image**: `yimikaade/wonderful:devops-stage-two`
 - **Documentation**: See README.md for detailed instructions
 - **Technical Deep-Dive**: See BACKEND_IM_RESEARCH.md
