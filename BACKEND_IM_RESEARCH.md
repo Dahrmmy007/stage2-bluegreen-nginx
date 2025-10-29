@@ -1,7 +1,9 @@
 # Technical Deep-Dive: Blue-Green Deployment Implementation
 
 **Document Type**: Backend Implementation Research  
-**Author**: Ologbon Damilola (Damien)  
+**Author**: Ologbon Damilola 
+**Slack**(@Damien)  
+**Github**: https://github.com/Dahrmmy007/stage2-bluegreen-nginx/
 **Project**: Zero-Downtime Blue-Green Deployment  
 **Date**: October 29, 2025
 
@@ -802,4 +804,4 @@ The system successfully achieves the core requirements while maintaining simplic
 
 **Document Version**: 1.0  
 **Last Updated**: October 29, 2025  
-**Author**: Ologbon Damilola (Damien)
+**Author**: Ologbon Damilola (@Damien)
