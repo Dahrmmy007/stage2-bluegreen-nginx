@@ -1,7 +1,7 @@
 # HNG Stage 2 - Blue-Green Deployment with Docker & Nginx
 
 **Name:** Ologbon Damilola  
-**Slack Username:** Damien  
+**Slack Username:** @Damien  
 **Track:** DevOps  
 **Stage:** 2 - Zero-Downtime Blue-Green Deployment
 
@@ -531,6 +531,7 @@ This project demonstrates:
 **Ologbon Damilola (Damien)**  
 DevOps Track - HNG13 Internship  
 Stage 2 - Blue-Green Deployment
+Github Repo - https://github.com/Dahrmmy007/stage2-bluegreen-nginx/
 
 ---
 
