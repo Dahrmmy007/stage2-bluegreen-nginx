@@ -1,0 +1,61 @@
+services:
+  app_blue:
+    image: ${BLUE_IMAGE:-yimikaade/wonderful:devops-stage-two}
+    container_name: app_blue
+    ports:
+      - "8081:3000"
+    environment:
+      - APP_POOL=blue
+      - RELEASE_ID=${RELEASE_ID_BLUE:-blue-v1.0}
+      - PORT=3000
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/healthz"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+    networks:
+      - app_network
+
+  app_green:
+    image: ${GREEN_IMAGE:-yimikaade/wonderful:devops-stage-two}
+    container_name: app_green
+    ports:
+      - "8082:3000"
+    environment:
+      - APP_POOL=green
+      - RELEASE_ID=${RELEASE_ID_GREEN:-green-v1.0}
+      - PORT=3000
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/healthz"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+    networks:
+      - app_network
+
+  nginx_lb:
+    image: nginx:alpine
+    container_name: nginx_lb
+    ports:
+      - "8080:80"
+    volumes:
+      - ./entrypoint.sh:/docker-entrypoint.d/40-generate-config.sh:ro
+    environment:
+      - ACTIVE_POOL=${ACTIVE_POOL:-blue}
+      - PORT=3000
+    depends_on:
+      app_blue:
+        condition: service_healthy
+      app_green:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
